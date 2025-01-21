@@ -1,0 +1,59 @@
+{% extends "mail/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <h2>{{ request.user.email }}</h2>
+
+    <button class="btn btn-sm btn-outline-primary" id="inbox">Inbox</button>
+    <button class="btn btn-sm btn-outline-primary" id="compose">Compose</button>
+    <button class="btn btn-sm btn-outline-primary" id="sent">Sent</button>
+    <button class="btn btn-sm btn-outline-primary" id="archived">Archived</button>
+    <a class="btn btn-sm btn-outline-primary" href="{% url 'logout' %}">Log Out</a>
+    <hr>
+
+    <div id="emails-view" class="container">
+    </div>
+
+    <div id="compose-view">
+        <h3>New Email</h3>
+        <form id="compose-form">
+            <div class="form-group mb-3 w-50">
+                From: <input disabled class="form-control" value="{{ request.user.email }}">
+            </div>
+            <div class="form-group mb-3 w-50">
+                To: <input id="compose-recipients" class="form-control">
+            </div>
+            <div class="form-group mb-3 w-50">
+                <input class="form-control" id="compose-subject" placeholder="Subject">
+            </div>
+            <textarea class="form-control mb-3 w-50" id="compose-body" placeholder="Body"></textarea>
+            <input type="submit" class="btn btn-primary"/>
+        </form>
+    </div>
+
+    <div id="email-view" class="container">
+        <div class="row mb-4">
+            <div id="email-subject" class="col-lg-9 col-md-7"><!--Subject filled by js--></div>
+            <div class="col-lg-3 col-md-5" id="email-buttons" data-user="{{ request.user.username }}">
+                <button id="email-reply" class="mx-4 btn btn-secondary">Reply</button>
+                <button id="email-archive" class="btn btn-warning"><!--Title filled by js--></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" id="email-body">
+                <!--Email Body filled by js-->
+            </div>
+        </div>
+    </div>
+
+    <!--Div that displays a toast-->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div class="toast" role="alert">
+            <div class="toast-body"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'mail/inbox.js' %}"></script>
+{% endblock %}
