@@ -4,7 +4,7 @@ Mail is a front-end for an email client designed to send, receive, and manage em
 
 ### Description
 
-This project involves building a fully functional email client where users can:
+This project is a fully functional email client where users can:
 - Send emails.
 - View their Inbox, Sent, and Archived emails.
 - Mark emails as read or unread.
