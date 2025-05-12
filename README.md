@@ -1,6 +1,6 @@
-# Mail
+# MailSphere
 
-Mail is a front-end for an email client designed to send, receive, and manage emails using API calls. The project is built as a single-page-application(SPA) using JavaScript, HTML, and CSS.
+MailSphere is a front-end for an email client designed to send, receive, and manage emails using API calls. The project is built as a single-page-application(SPA) using JavaScript, HTML, and CSS.
 
 ### Description
 
